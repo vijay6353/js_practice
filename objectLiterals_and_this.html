@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="main">
+        <div>
+            <p></p>
+        </div>
+    </div>
+    <script>
+
+        /*
+        let bioData ={
+            myname: {
+                firstname:"vijay",
+                middlename:"prajapati"
+            },
+            age:21,
+             myfunc (){
+             console.log (` my name is ${bioData.myname.firstname} and my age is${bioData.age} `)
+             }
+                
+        }
+        bioData.myfunc();
+
+        // console.log(bioData);
+
+        */
+
+        // use of "this" object :=>
+
+        //       Note    : this object can not be used in arrow functons.
+
+
+        let bioData ={
+            myname: {
+                firstname:"vijay",
+                middlename:"prajapati"
+            },
+            age:21,
+             myfunc (){
+             console.log (` my name is ${this.myname.firstname} and my age is ${this.age} `)
+             }
+                
+        }
+        bioData.myfunc();
+
+
+
+
+
+
+    </script>
+</body>
+</html>

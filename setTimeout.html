@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div>
+            <p>wnat to know my name</p>
+            <p id="showname"></p>
+            <br>
+            <button id="btn" onclick="showMyname()">click here</button>
+        </div>
+    </div>
+
+    <script>
+        
+
+        let myname = document.getElementById("showname")
+        let btn = document.getElementById("btn")
+        
+        let showMyname=()=>{
+            myname.innerHTML = "Looding...."
+            setTimeout(() => {
+                myname.innerHTML = "vijay"
+            }, 3000);
+            
+        }
+        btn.addEventListener("click" , showMyname);
+
+
+
+    </script>
+</body>
+</html>

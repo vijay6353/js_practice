@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>para</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+
+    }
+    .row{
+        display: flex;
+        justify-content: center;
+    }
+    .main{
+        /* margin: auto; */
+        margin-top: 50px;
+
+
+    }
+    .dis-block{
+        display: block;
+    }
+    input{
+        height: 25px;
+        border: 1px solid;
+    }
+    button{
+        background-color: cadetblue;
+        /* color: white; */
+        font-size: 15px;
+        padding: 4px;
+        margin-left: 10px;
+
+    }
+    b{
+        font-size: 20px;
+    }
+    #data{
+        width: 70%;
+        margin: auto;
+    }
+    .text-center{
+        text-align: center;
+        margin-left: 10px;
+    }
+    
+
+</style>
+<body>
+    <div class="main">
+        <div class="row">
+            <div>
+                <b> paragraph:</b>
+            </div>
+            <div>
+                <input type="number" id="items" class="text-center">
+            </div>
+            <div>
+                <button onclick="generate()">Generate</button>
+            </div>
+        </div>
+        <div class="row dis-block" id="data"></div>
+    </div>
+
+    <script>
+
+        let text = [   "=> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt beatae nihil eveniet sint porro fugit hic explicabo aliquid nesciunt ex enim quam, distinctio provident quisquam ab esse iste nobis magnam.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt beatae nihil eveniet sint porro fugit hic explicabo aliquid nesciunt ex enim quam, distinctio provident quisquam ab esse iste nobis magnam.","=> Lorem ipsum dolor sit amet Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt beatae nihil eveniet sint porro fugit hic explicabo aliquid nesciunt ex enim quam, distinctio provident quisquam ab esse iste nobis magnam. consectetur adipisicing elit. Distinctio voluptatum reprehenderit quam rerum fugiat dolores veniam in quaerat eveniet ratione. Architecto quisquam aut tempore dolores neque? Autem voluptatum nam nisi.","=> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid obcaecati voluptates reiciendis doloremque eius. Asperiores, ex harum. Corporis, atque autem, in necessitatibus eligendi saepe, fuga perspiciatis placeat itaque corrupti ex? "," => Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse odio possimus non nesciunt sed ipsam aspernatur voluptas adipisci quas repellat. Ipsum, voluptatum voluptas sit suscipit ipsam ratione doloremque Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt beatae nihil eveniet sint porro fugit hic explicabo aliquid nesciunt ex enim quam, distinctio provident quisquam ab esse iste nobis magnam. adipisci soluta? ", "=> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eligendi, nihil cupiditate illo aut ea illum libero quibusdam accusamus, velit quam unde, at earum doloremque impedit inventore corrupti nulla accusantium? ", "=> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero eaque quia quos delectus. Quisquam eum itaque magni quidem, nam dignissimos architecto ea non, impedit reiciendis commodi excepturi Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt beatae nihil eveniet sint porro fugit hic explicabo aliquid nesciunt ex enim quam, distinctio provident quisquam ab esse iste nobis magnam.  quo mollitia voluptatem. ", "=> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, aspernatur quia dolore nobis architecto nihil reprehenderit assumenda maiores dolorem. Cupiditate assumenda repellendus maxime reiciendis, accusantium ullam Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt beatae nihil eveniet sint porro fugit hic explicabo aliquid nesciunt ex enim quam, distinctio provident quisquam ab esse iste nobis magnam. in numquam earum quisquam! " ,"=> Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt beatae nihil eveniet sint porro fugit hic explicabo aliquid nesciunt ex enim quam, distinctio provident quisquam ab esse iste nobis magnam. adipisicing elit. Corrupti, consequatur. Aspernatur, iusto. Pariatur mollitia perspiciatis optio debitis voluptates eaque? Est, ut esse. Temporibus iusto vero, veniam quaerat modi rem hic! ", "=> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel corrupti voluptas aut nam incidunt harum,Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt beatae nihil eveniet sint porro fugit hic explicabo aliquid nesciunt ex enim quam, distinctio provident quisquam ab esse iste nobis magnam. hic natus pariatur! Porro, nulla rerum cupiditate veniam id natus perspiciatis fuga eligendi quia debitis! "]
+        // console.log(arr);
+        
+        let item = document.querySelector("#items")
+        let datacontainer = document.querySelector("#data")
+        let generate = ()=>{
+            if ( isNaN(item.value) || item.value<0 || item.value > 9) {
+                let randomeindex = Math.floor(Math.random() * text.length)
+                datacontainer.innerHTML = `<p> ${text[randomeindex]}`
+            }else{
+                let data = text.slice(0 ,item.value )
+                let paras = data.map((d) =>{
+                    return `<p> ${d} </p>`
+                })
+                // console.log(paras);
+                datacontainer.innerHTML = paras.join("");
+            }
+        }
+
+
+
+
+    </script>
+  
+</body>
+</html>

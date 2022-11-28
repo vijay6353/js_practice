@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div>
+            <p id="show">can you stop me when i reach at 5 ?</p>
+            <br>
+            <button id="btn1" >start</button>
+            <button id="btn2" onclick="stopinterval()" >stop</button>
+        </div>
+    </div>
+
+    <script>
+        let stopnum = document.querySelector("#show")
+        let btn =document.querySelector("#btn1")
+        let stopint =document.querySelector("#btn2")
+         let num = 0;
+         let myref;
+
+        let stopmynum = ()=>{
+            stopnum.innerHTML = "Looding...."
+            let myref = setInterval(() => {
+                num++;
+                stopnum.innerHTML = `${num}`
+            }, 1000);
+        }
+        btn.addEventListener("click",stopmynum);
+        let stopinterval = ()=>{
+            clearInterval(myref);
+
+        }
+        
+
+
+    </script>
+</body>
+</html>

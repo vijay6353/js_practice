@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .main{
+        width: 60%;
+        height: 500px;
+        margin: auto;
+        margin-top: 100px;
+        box-shadow: 0px 0px 3px gray;
+        position: relative;
+        overflow: hidden;
+    }
+    .slide{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transition: all 1.5s;
+    }
+    .nav{
+        text-align: center;
+        margin-top: 15px;
+    }
+    .nav button{
+        padding: 5px;
+        font-size: 25px;
+    }
+</style>
+<body>
+    <div class="main">
+        <img src="https://picsum.photos/id/237/1000/500" class="slide" alt="" srcset="">
+        <img src="https://picsum.photos/id/238/1000/500" class="slide" alt="" srcset="">
+        <img src="https://picsum.photos/id/239/1000/500" class="slide" alt="" srcset="">
+        <img src="https://picsum.photos/id/240/1000/500" class="slide" alt="" srcset="">
+
+    </div>
+    <div class="nav">
+        <button onclick="goprev()">prev</button>
+        <button onclick="gonext()">next</button>
+    </div>
+
+    <script>
+        let slides = document.querySelectorAll(".slide")
+        let counter = 0;
+        // console.log(slides);
+
+        slides.forEach((slide, index) => {
+            slide.style.left = `${index * 100}%`
+        });
+
+
+        const goprev = ()=>{
+            counter--;
+            slideimages();
+        }
+        const gonext = ()=>{
+            counter++;
+           
+            slideimages();
+        }
+        
+
+        const slideimages = ()=>{
+            slides.forEach((slide)=>{
+                slide.style.transform = ` translatex(-${counter * 100}%)`
+            })
+            
+            // console.log(index, counter);
+            // console.log(count);
+        }
+
+    </script>
+
+</body>
+</html>

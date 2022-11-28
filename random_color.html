@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            
+        }
+        .main{
+            width: 500px;
+            height: 60px;
+            border: 1px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            margin-top: 100px;
+            flex-direction: column;
+        }
+        #btn{
+            margin-top: 10px;
+            padding:5px 10px;
+            border-radius: 5px;
+            background-color: gray;
+
+        }
+        #color-code{
+            margin-top: 5px ;
+        }
+      
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div id="color-code" >#fff</div>
+        <button id="btn" >click me</button>
+    </div>
+
+    <script>
+
+        let getcolor = ()=>{
+            let randomcolor = Math.floor(Math.random() * 16777215);
+            let randomcode = "#" + randomcolor.toString(16);
+            document.body.style.backgroundColor = randomcode
+            document.getElementById("color-code").innerText = randomcode
+
+        }
+        document.getElementById("btn").addEventListener(
+            "click",
+            getcolor
+        )
+        getcolor();
+
+
+
+    </script>
+</body>
+</html>

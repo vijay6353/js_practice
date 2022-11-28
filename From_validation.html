@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      span{
+        color: red;
+      }
+    </style>
+</head>
+<body>
+    <form action="" method="get">
+        <table border="1" align="center">
+
+            <tr>
+                <td>username</td>
+                <td>
+                    <input type="text" onblur="chackreq(this,'usernameError')" name="username" id="username" class="username" required>
+                    <span id="usernameError">*</span>
+                </td>
+            </tr>
+            <tr>
+                <td>password</td>
+                <td>
+                    <input type="password" onblur="chackreq(this,'passwordError')" name="password" id="password" class="password" required>
+                    <span id="passwordError">*</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>
+                    <input type="email" name="email" id="email" class="email" required>
+                    <span id="EmailError">*</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Mobile</td>
+                <td>
+                    <input type="tel" name="mobile" id="mobile" class="mobile">
+                    <span id="">*</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" name="submit" id="" class="">
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+    <script>
+
+        function chackreq(inp,spanid) {
+            console.log(inp.value);
+
+            if (inp.value == "") {
+                document.getElementById(spanid).innerHTML = "<b>This field is required</b>"
+            }else{
+                document.getElementById(spanid).innerHTML = ""
+            }
+            
+        }
+
+
+
+    </script>
+</body>
+</html>
