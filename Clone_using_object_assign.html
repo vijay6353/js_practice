@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const obj1 = {
+            key1:"value1",
+            key2:"value2"
+        }
+
+        // let obj2 = obj1;
+        // obj1.key3 = "value3"; // we added one more key and value in object
+        // console.log(obj1);
+        // console.log(obj2);
+        // if we see here key3 will be added in both the object obj1 and obj2 
+        // so to fix this problem we will have to use here clone method 
+
+        let obj2 = {...obj1};
+        // here is the second method to clone the object it as below.
+
+        // let obj2 = Object.assign({},obj1)  // this will olso work the same.
+        // if we add more key in first object 
+        obj1.key3 = "value3";
+        console.log(obj1);
+        console.log(obj2);
+        // here we can see that key is added in only first object
+
+
+    </script>
+    
+</body>
+</html>

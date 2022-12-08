@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const userInfo = function(){
+            console.log(`username is ${this.firstName} and age is ${this.age}`);
+        }
+        
+        const person = {
+            firstName: "vijay",
+            age : 22,
+            about: userInfo
+        }
+
+        const person2 = {
+            firstName: "sanjay",
+            age : 25,
+            about: userInfo
+        }
+
+        const person3 = {
+            firstName: "kiran",
+            age : 23,
+            about: userInfo
+        }
+
+        person3.about();
+
+
+
+    </script>
+</body>
+</html>

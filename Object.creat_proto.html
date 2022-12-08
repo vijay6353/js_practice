@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // first we will see what is proto
+
+        const obj1 = {
+            key1: "value1",
+            key2: "value2"
+        }
+
+        let obj2 = Object.create(obj1);  // this line will creat proto as a referance in console 
+        // console.log(obj2);  // output => {} empty object and a proto reference
+        // now i am adding key3 in obj2 
+        obj2.key3 = "value3";
+        // console.log(obj2);
+        // console.log(obj2.__proto__);
+        // now obj2 has only one key3 
+        // if i want javascript engine to give the key1 and value1 even if there is no any key1 and value1
+        // because of object.creat js will give the value which is not in  obj2
+
+        // console.log(obj2.key2);  // here it gives the value2
+
+
+        // now we will make the function which will take paramiters of object of persions information
+
+
+
+
+        // function creatUser(firstName,lastName,email,age,address) {
+        //     const user = {};
+        //     user.firstName =firstName;
+        //     user.lastName = lastName;
+        //     user.email = email;
+        //     user.age = age;
+        //     user.address = address;
+        //     user.about = function () {
+        //         return `${this.firstName} is ${this.age} yesrs old`
+        //     }
+        //     user.is18 = function () {
+        //         return this.age >= 18;
+        //     }
+        //     return user;
+        // }
+
+        // let user1 = creatUser("vijay", "prajapati", "vijay@gmail.com", 22, "my adderess");
+        // console.log(user1);
+        // // to call the Method(means objects inside the function) we will do the thing as below..
+        // let about = user1.about();
+        // console.log(about);
+        // let is18 = user1.is18();
+        // console.log(is18);
+
+        // NOTE :: this method has some downfalls that is why we will creat an object and stor the
+        //         Methods used in function .
+
+
+
+
+        /*[START]
+
+        const userMethods = {
+            about : function () {
+                return `${this.firstName} is ${this.age} yesrs old`
+            },
+            is18 : function () {
+                    return this.age >= 18;
+                }
+
+        }
+
+        function creatUser(firstName, lastName, email, age, address) {
+            const user = {};
+            user.firstName = firstName;
+            user.lastName = lastName;
+            user.email = email;
+            user.age = age;
+            user.address = address;
+            user.about = userMethods.about;
+            user.is18 = userMethods.is18;
+           
+            return user;
+        }
+
+
+        let user1 = creatUser("vijay", "prajapati", "vijay@gmail.com", 22, "my adderess");
+        let user2 = creatUser("sanjay", "prajapati", "sanjay@gmail.com", 24, "my adderess");
+        console.log(user1);
+        // to call the Method(means objects inside the function) we will do the thing as below..
+        console.log(user1.about());
+        console.log(user2.about());
+        console.log(user1.is18());
+
+        [END]
+        */ 
+
+        // NOTE :: this method also had some downfalls that is why we will finally use the method as below..
+
+
+        const userMethods = {
+            about : function () {
+                return `${this.firstName} is ${this.age} yesrs old`
+            },
+            is18 : function () {
+                    return this.age >= 18;
+                }
+
+        }
+        
+        function creatUser(firstName, lastName, email, age, address) {
+            const user = Object.create(userMethods); // this will creat proto as a reference 
+            user.firstName = firstName;
+            user.lastName = lastName;
+            user.email = email;
+            user.age = age;
+            user.address = address;
+           
+           
+            return user;
+        }
+        let user1 = creatUser("vijay", "prajapati", "vijay@gmail.com", 22, "my adderess");
+
+        console.log(user1);
+        console.log(user1.about()); // this will give the value of about func even if there is no about method in user1
+        
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
