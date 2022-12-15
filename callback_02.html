@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>students list</h1>
+  <ul id="students"></ul>
+  <script>
+
+    // this is the example without using callback 
+    // in this case we have given set timeout of 3 sec in enrollstd func and 1sec in getstd func
+    // so the thing happens in this case is that the list will come without the last student which was enrolled at last
+    // so to fix this problem we have to use calllback function
+    // callback func will not make getstudent function exicuted. It will only exicuted when the enrollstudent func gets done
+
+
+    // let students = [
+    //     {name:"vijay",course:"front-end"},
+    //     {name:"ketan",course:"back-end"},
+    //     {name:"ajay",course:"full-stack"},
+    // ]
+    // const enrollStudent = (student)=>{
+    //   setTimeout(() => {
+    //     students.push(student)
+    //   }, 3000);
+    // }
+
+    // const getStudents = ()=>{
+    //     setTimeout(() => {
+    //       let str = ""
+    //       students.forEach((student)=>{
+
+    //           str += `<li>${student.name}</li>`
+    //       })
+    //       document.getElementById("students").innerHTML =str;
+    //     }, 1000);
+    // }
+    // let newStudent = {name:"kaushil",course:"full-stack"}
+    // enrollStudent(newStudent)
+    // getStudents()
+
+
+
+    // this is the example using callback 
+
+    let students = [
+      { name: "vijay", course: "front-end" },
+      { name: "ketan", course: "back-end" },
+      { name: "ajay", course: "full-stack" },
+    ]
+    const enrollStudent = (student,callback) => {
+      setTimeout(() => {
+        students.push(student)
+        callback()
+      }, 3000);
+    }
+
+    const getStudents = () => {
+      setTimeout(() => {
+        let str = ""
+        students.forEach((student) => {
+
+          str += `<li>${student.name}</li>`
+        })
+        document.getElementById("students").innerHTML = str;
+      }, 1000);
+    }
+    let newStudent = { name: "kaushil", course: "full-stack" }
+    enrollStudent(newStudent,getStudents)
+
+  </script>
+</body>
+
+</html>

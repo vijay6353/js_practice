@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closure</title>
+</head>
+
+<body>
+    <script>
+
+        // here we have used var in place of let so the result will be all different 
+        // result will be 6 for 6 time
+        // if we use let here so then our work will get done 
+        // but still there is other way to do that . and it is "closer"
+
+        // const myFunc = ()=>{
+        //     for (var index = 1; index <= 5; index++) {
+        //         setTimeout(() => {
+        //             console.log(index);
+        //         }, index * 1000);
+        //     }     
+        // }
+        // myFunc();
+
+        // now here in loop we will use var in place of let and with the help of closure we will get the same result
+
+        const myFunc = () => {
+            for (var index = 1; index <= 5; index++) {
+                let close = (index) => {
+                    setTimeout(() => {
+                        console.log(index);
+                    }, index * 1000);
+                }
+                close(index)
+            }
+        }
+        myFunc()

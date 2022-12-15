@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // here is only the syntex to do the fatch api method
+
+        const URL = "here is the url of API";
+
+        async function getposts() {
+            const responce = await fetch(URL)
+            if (!responce.ok) {
+                throw new Error(" sorry error accured ")
+            }
+            const data = await responce.json();
+            return data;
+        }
+        // here we also can use arrow function 
+        // here is the example below
+
+        // const getpost =async()=>{
+        //     let responce = await fetch(URL)
+        //     if (!responce.ok) {
+        //         throw new Error("something went wrong")
+        //     }
+        //     let data = await responce.json
+        //     return data;
+        // }
+        // getpost().then((mydata)=>{
+        //     console.log(mydata);
+        // }).catch((error)=>{
+        //     console.log(error);
+        // })
+
+
+
+        getposts().then((data)=>{
+            console.log(data);
+        }).catch((error)=>{
+            console.log(error);    
+        })                      
+        // here catch will not exicute even if there would an error accures
+        // that is why we will have to give the condition in function // so we can exicute the catch 
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
